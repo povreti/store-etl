@@ -1,4 +1,5 @@
 import sqlite3
+import logging
 
 
 def create_tables(db_path):
@@ -44,6 +45,7 @@ def create_tables(db_path):
         )
     ''')
 
+    logging.info('Созданы 3 таблицы: location, categories, sales\n')
     connection.commit()
     connection.close()
 
@@ -116,7 +118,7 @@ def fill_tables(df, db_path):
         ))
 
     cursor.executemany(
-        '''INSERT OR IGNORE INTO sales (ship_mode,
+        '''INSERT INTO sales (ship_mode,
             amount,
             quantity,
             discount,
@@ -126,6 +128,13 @@ def fill_tables(df, db_path):
             category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
         sales_data
     )
+
+    logging.info(f'''
+        Таблицы заполнены:\n
+        location ({len(location_data)} строк)\n
+        categories ({len(categories_data)} строк)\n
+        sales ({len(sales_data)} строк)\n
+    ''')
 
     connection.commit()
     connection.close()
