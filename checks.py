@@ -1,6 +1,7 @@
 import logging
 import sqlite3
 
+
 def check_row_count(db_path):
     connection = sqlite3.connect(db_path)
     cursor = connection.cursor()
@@ -14,12 +15,12 @@ def check_row_count(db_path):
     cursor.execute('SELECT COUNT(*) FROM sales')
     qty_sales = cursor.fetchone()[0]
 
-    logging.info(f'''
-        При проверке данных выявлено следующее количество записей:
-        location - {qty_location}
-        categories - {qty_categories}
-        sales - {qty_sales}\n
-    ''')
+    logging.info(
+        '\nПри проверке данных выявлено следующее количество записей:\n'
+        f'location - {qty_location}\n'
+        f'categories - {qty_categories}\n'
+        f'sales - {qty_sales}\n'
+    )
 
     connection.close()
 

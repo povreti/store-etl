@@ -45,7 +45,7 @@ def create_tables(db_path):
         )
     ''')
 
-    logging.info('Созданы 3 таблицы: location, categories, sales\n')
+    logging.info('Созданы 3 таблицы: location, categories, sales')
     connection.commit()
     connection.close()
 
@@ -129,12 +129,12 @@ def fill_tables(df, db_path):
         sales_data
     )
 
-    logging.info(f'''
-        Таблицы заполнены:\n
-        location ({len(location_data)} строк)\n
-        categories ({len(categories_data)} строк)\n
-        sales ({len(sales_data)} строк)\n
-    ''')
+    logging.info(
+        f'\nТаблицы заполнены:\n'
+        f'location ({len(location_data)} строк)\n'
+        f'categories ({len(categories_data)} строк)\n'
+        f'sales ({len(sales_data)} строк)\n'
+    )
 
     connection.commit()
     connection.close()
