@@ -9,5 +9,3 @@ def extract_data(path):
         raise FileNotFoundError('Файл по заданому пути не найден')
     except pd.errors.EmptyDataError:
         raise ValueError('Файл пустой')
-
-    

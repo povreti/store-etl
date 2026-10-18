@@ -5,8 +5,6 @@ ETL-пайплайн: CSV > pandas > SQLite > проверки > отчёты
 Python, pandas, SQLite
 
 ## Запуск
-1. Скачать датасет и положить в `Data/`
-2. Установить зависимости и запустить:
 ```
 pip install pandas
 python main.py
@@ -18,3 +16,7 @@ Superstore (Kaggle), https://www.kaggle.com/datasets/roopacalistus/superstore
 ## Схема данных
 
 ![Схема БД](Docs/schema.png)
+
+## Особенности данных
+- Пропущенных значений в датасете не обнаружено 
+- Отрицательная прибыль сохранена, так как отражает реальные убытки
